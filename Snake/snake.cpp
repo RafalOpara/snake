@@ -101,7 +101,7 @@ void Logic()
 	for (int i = 1; i < nTail; i++)
 	{
 		prev2X = tailX[i];
-		prev2Y = tailX[i];
+		prev2Y = tailY[i];
 		tailX[i] = prevX;
 		tailY[i] = prevY;
 		prevX = prev2X;
@@ -142,14 +142,21 @@ void Logic()
 
 int main()
 {
-	Setup();
-	while (!gameOver)
+	int choose=0;
+	while (choose != 2)
 	{
-		Draw();
-		Input();
-		Logic();
-		Sleep(50);
+		Setup();
+		while (!gameOver)
+		{
+			Draw();
+			Input();
+			Logic();
+			Sleep(50);
+		}
+		cout << "PRZEGRALES!!!" << endl;
+		cout << "Zagraj jeszcze raz - 1" << endl;
+		cout << "Wyjdz z gry - 2" << endl;
+		cin >> choose;
 	}
-
 	return 0;
 }
